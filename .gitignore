@@ -8,3 +8,15 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Models
+*.mf
+*.mf.gz
+
+# IDE files
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

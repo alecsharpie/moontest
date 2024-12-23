@@ -56,7 +56,7 @@ def test_server():
 @pytest.fixture
 def config():
     return Config(
-        model_path=Path("models/moondream-0.5b-int8.mf"),
+        model_path=Path("models/moondream-0_5b-int8.mf.gz"),
         screenshot_dir=Path("artifacts/screenshots")
     )
 
