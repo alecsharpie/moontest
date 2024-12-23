@@ -1,6 +1,6 @@
 import pytest
 from pathlib import Path
-from src.ui_tester import UITest, UIQuery
+from moontest import UITest, UIQuery
 
 @pytest.mark.asyncio
 async def test_simple_button(test_server, runner):
