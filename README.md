@@ -1,3 +1,6 @@
+# VLM web testing
+This project uses the [Moondream](https://github.com/vikhyat/moondream) VLM to power web testing.
+
 # Run Tests
 ```bash
 uv run pytest tests/test_scenarios.py -v
