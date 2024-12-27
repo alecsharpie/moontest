@@ -10,6 +10,8 @@ import moondream as md
 from playwright.async_api import async_playwright, Page, Browser, BrowserContext
 import json
 
+GLOBAL_MODEL = None
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
@@ -141,10 +143,17 @@ class ScreenshotManager:
             filename += f"_{index}"
         return self.config.screenshot_dir / f"{filename}.png"
 
+def get_shared_model(config):
+    global GLOBAL_MODEL
+    if GLOBAL_MODEL is None:
+        GLOBAL_MODEL = md.vl(model=str(config.model_path))
+    return GLOBAL_MODEL
+
+
 class VisionAnalyzer:
     def __init__(self, config: Config):
         try:
-            self.model = md.vl(model=str(config.model_path))
+            self.model = get_shared_model(config)
         except Exception as e:
             logger.error(f"Failed to load model: {e}")
             raise
